@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard - SolarTherm</title>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel="stylesheet" type="text/css" href="css/local.css" />
+    </head>
+    <body>
+
+        <header class="header">
+            <a href="" class="logo">SolarTherm</a>
+            <input class="menu-btn" type="checkbox" id="menu-btn" />
+            <label class="menu-icon" for="menu-btn">
+                <span class="navicon"></span>
+            </label>
+            <ul class="menu">
+                <li><span id="Wohnzimmer">Wohnzimmer</span></li>
+                <li><span id="Schlafzimmer">Schlafzimmer</span></li>
+            </ul>
+        </header>
+
+        <!--Graph charts inspired by https://dribbble.com/shots/1876534-Stats-animation?list=following&offset=4-->
+        
+        <div class="charts-container cf">
+
+            <div class="title-container">
+                <h1><span class="thermtitle"></span></h1>
+                <h2>Letztes Update: <span class="lastupdate"></span></h2>
+            </div>
+
+            <div class="chart circle" id="circle-1">
+                <h2 class="title">Temperatur</h2>
+                <div class="chart-svg align-center">
+                    <h2 class="circle-percentage"></h2>
+                    <svg class="chart-circle" id="chart-3" width="50%" viewBox="0 0 100 100">
+                        <path class="underlay" d="M5,50 A45,45,0 1 1 95,50 A45,45,0 1 1 5,50" />
+                    </svg>
+                </div>
+                <div class="triangle green"></div>
+            </div>
+
+            <div class="chart circle" id="circle-2">
+                <h2 class="title">Luftfeuchtigkeit</h2>
+                <div class="chart-svg align-center">
+                    <h2 class="circle-percentage"></h2>
+                    <svg class="chart-circle" id="chart-4" width="50%" viewBox="0 0 100 100">
+                        <path class="underlay" d="M5,50 A45,45,0 1 1 95,50 A45,45,0 1 1 5,50" />
+                    </svg>
+                </div>
+                <div class="triangle blue"></div>
+            </div>
+
+            <div class="chart" id="graph-1-container">
+                <h2 class="title">Temperatur</h2>
+                <div class="textY">Grad</div>
+                <div class="chart-svg linegraph">
+                    <ul class="valueY"></ul>
+                    <svg class="chart-line" id="chart-1" viewBox="0 0 80 40">
+                        <defs>
+                            <clipPath id="clip" x="0" y="0" width="80" height="40" >
+                                <rect id="clip-rect" x="-80" y="0" width="77" height="38.7" />
+                            </clipPath>
+
+                            <linearGradient id="gradient-1">
+                                <stop offset="0" stop-color="#00d5bd" />
+                                <stop offset="100" stop-color="#24c1ed" />
+                            </linearGradient>
+
+                            <linearGradient id="gradient-2">
+                                <stop offset="0" stop-color="#954ce9" />
+                                <stop offset="0.3" stop-color="#954ce9" />
+                                <stop offset="0.6" stop-color="#24c1ed" />
+                                <stop offset="1" stop-color="#24c1ed" />
+                            </linearGradient>
+
+                            <linearGradient id="gradient-3" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0" stop-color="rgba(0, 213, 189, 1)" stop-opacity="0.07" />
+                                <stop offset="0.5" stop-color="rgba(0, 213, 189, 1)" stop-opacity="0.13" />
+                                <stop offset="1" stop-color="rgba(0, 213, 189, 1)" stop-opacity="0" />
+                            </linearGradient>
+
+                            <linearGradient id="gradient-4" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0" stop-color="rgba(149, 76, 233, 1)" stop-opacity="0.07" />
+                            <stop offset="0.5" stop-color="rgba(149, 76, 233, 1)" stop-opacity="0.13" />
+                            <stop offset="1" stop-color="rgba(149, 76, 233, 1)" stop-opacity="0" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <ul class="valueX"></ul>
+                </div>
+                <div class="textX">Uhrzeit</div>
+                <div class="chart-values">
+                    <p class="h-value">24 Std.</p>
+                    <p class="percentage-value"></p>
+                    <p class="total-gain"></p>
+                </div>
+                <div class="triangle green"></div>
+            </div>
+
+            <div class="chart cf" id="graph-2-container">
+                <h2 class="title">Luftfeuchtigkeit</h2>
+                <div class="textY">Prozent</div>
+                <div class="chart-svg linegraph">
+                    <ul class="valueY"></ul>
+                    <svg class="chart-line" id="chart-2" viewBox="0 0 80 40"></svg>
+                    <ul class="valueX"></ul>
+                </div>
+                <div class="textX">Uhrzeit</div>
+                <div class="chart-values">
+                    <p class="h-value">24 Std.</p>
+                    <p class="percentage-value"></p>
+                    <p class="total-gain"></p>
+                </div>
+                <div class="triangle blue"></div>
+            </div>
+
+        </div>
+
+        <div class="text-container">
+            <div class="sensor-3">Luftdruck:<br /><span class="data-3 h-value">0</span></div>
+            <div class="sensor-4">Höhenlage:<br /><span class="data-4 h-value">0</span></div>
+            <div class="sensor-5">Batterie:<br /><span class="data-5 h-value">0</span></div>
+        </div>
+
+        <script type="text/javascript" src="js/custom.js"></script>
+    </body>
+</html>
