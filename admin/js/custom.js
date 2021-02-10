@@ -115,6 +115,10 @@ function thermoGraph(thermometer) {
 
                 function createSegments(p_array) {
                     for (i = 0; i < p_array.length; i++) {
+                        // Workaround if values are NaN
+                        if (isNaN(p_array[i].x)) p_array[i].x = p_array[i-1].x;
+                        if (isNaN(p_array[i].y)) p_array[i].y = p_array[i-1].y;
+
                         var seg = "L" + p_array[i].x + "," + p_array[i].y;
                         if (i === 0) {
                             seg = "M" + p_array[i].x + "," + p_array[i].y;
