@@ -263,7 +263,7 @@ h1 p {
 }
 .text-container {
     margin: 0 auto;
-    padding: 10px 20px 20px 20px;
+    padding: 10px 20px 10px 20px;
     display: flex;
     width: 100%;
     max-width: 1024px;
@@ -286,12 +286,34 @@ h1 p {
     .text-container, .title-container {
         display: block;
     }
-    .text-container div {
+    .text-container div:not(:last-child) {
         display: block;
         margin: 0 10px 10px 10px;
     }
     .title-container h1, .title-container h2 {
         display: block;
+    }
+}
+
+.firmware-container {
+    margin: 0 auto 20px auto;
+    display: flex;
+    width: 100%;
+    max-width: 1024px;
+    justify-content: flex-end;
+    color: #4a667a;
+    font-size: .7rem;
+    box-sizing: border-box;
+}
+.firmware-container div {
+    padding-right: 30px;
+}
+@media screen and (max-width: 550px) {
+    .firmware-container {
+        justify-content: center;
+    }
+    .firmware-container div {
+        padding-right: 0;
     }
 }
 

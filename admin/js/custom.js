@@ -115,7 +115,6 @@ function thermoGraph(thermometer) {
 
                 function createSegments(p_array) {
                     for (i = 0; i < p_array.length; i++) {
-                        // Workaround if values are NaN
                         if (isNaN(p_array[i].x)) p_array[i].x = p_array[i-1].x;
                         if (isNaN(p_array[i].y)) p_array[i].y = p_array[i-1].y;
 
@@ -317,6 +316,17 @@ function thermoGraph(thermometer) {
                 countCircle(animTime,parent,unit,progress);
             }
             
+            function showFirmwareVersion(devicename) {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        $('#firmware').text(this.responseText);
+                    }
+                };
+                xmlhttp.open("GET", "../get-firmware.php?device=" + devicename, true);
+                xmlhttp.send();
+            }
+
             $('.thermtitle').text(obj.name);
 
             const event = new Date(obj.lastupdate);
@@ -337,6 +347,8 @@ function thermoGraph(thermometer) {
             drawCircle('#chart-4',2,parseFloat(obj.humidity),'%','#circle-2');
             drawLineGraph('#chart-1', chart_1_y, 50, '#graph-1-container', 1);
             drawLineGraph('#chart-2', chart_2_y, 100, '#graph-2-container', 2);
+
+            showFirmwareVersion(obj.name.toLowerCase());
         }
     }; 
     xhttp.open("get", "get-data.php?device="+thermometer, true); 
