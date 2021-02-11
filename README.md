@@ -62,11 +62,11 @@ A lot. Will come soon.
 This project is really early development stage and need improvements everywhere especially on security aspects.
 It is working in my environment with 2 of this wifi IoT devices. This means it is possible to replicate it on other devices too.
 
-- Everything what you use from this project you do it at your own risk.
-- I'll not resposible for any health or device damage.
-- I'm not going to teach you how to install a LAMP stack on RPI or others. There are many How To's around the internet to successfully have this done.
+- Everything what you use from this project you use it at your own risk.
+- I'll not responsible for any health or device damage.
+- I'm not going to teach you how to install a LAMP stack on RPI or other. There are many How To's around the internet to successfully have this done.
 
-If you need external services like ThingSpeak, Blynk, IFTTT or MQTT you should use the original [Arduino Sketch](https://www.instructables.com/id/Solar-Powered-WiFi-Weather-Station-V20/) or clones around this project.
+If you need external services like ThingSpeak, Blynk, IFTTT or MQTT you should use the original [Arduino Sketch](https://www.instructables.com/id/Solar-Powered-WiFi-Weather-Station-V20/) or clones around this project. I'm personally not using this services for such kind of project.
 
 For example:
 - https://github.com/3KUdelta/Solar_WiFi_Weather_Station<br />
@@ -191,17 +191,17 @@ Make sure you read the [Security disclaimer](https://arduino-esp8266.readthedocs
 
 - LAMP stack ideally on your local network running RPI and/or
 - webspace at your desired webhost service with access to Apache, PHP and r/w permissions
-- familiar with building binaries with Arduino IDE
+- familiar with building binaries on Arduino IDE
 - Optional: Have the initial SolarTherm setup done and running (not reachable hosts have a time out on SolarTherm side)
 
 
 ### Limitations
 
-In this stage the over the air update only receive over unsecure protocol (http instead of https) what is no problem on my local network because i don't need it SSL based.
+In this stage the over the air update only receive over unsecure protocol (http instead of https) what is no problem in my local network because i don't need it SSL based.
 
 If you want a secure SSL connection transfer for your binary SolarTherm builds you have to extend the `ota-updater.cpp` to provide a security parameter.
 
-It is somehow risky to use it with webspace hoster due to the scripts on LAMP stack side. They are more drafts and inspiration for further development than a real productive usage.
+It is somehow risky to use it with webspace hoster due to the scripts on LAMP stack side. They are more drafts and inspiration for further development.
 
 
 ### Steps
@@ -210,8 +210,8 @@ It is somehow risky to use it with webspace hoster due to the scripts on LAMP st
    - URL of update host `OTA_UPDATE_HOST` (could also IP address or Dynamic DNS)
    - use Port `OTA_UPDATE_PORT`
    - Path on your webroot where the update script `ota-update.php` is located `OTA_UPDATE_SCRIPT_PATH`
-   - defines the name for your device `OTA_UPDATE_VERSION` to identifiy the correct `*.bin` sketch file
-2. Define the MAC address of your devices inside array config `ota-update.php` with the name you defined in `config.h`
+   - defines the name for your device `OTA_UPDATE_VERSION` to identify the correct `*.bin` sketch file
+2. Define the MAC address of your devices inside the PHP array config `ota-update.php` with the name you defined in `config.h`
 3. Build the device binary file with your Arduino IDE, name the file you defined under `OTA_UPDATE_VERSION`
 4. Upload the file to your webroot defined in step 1 for example: `solartherm-ota/bin` folder
 5. Load the initial version of the code to the ESP through USB.
@@ -223,12 +223,12 @@ It is somehow risky to use it with webspace hoster due to the scripts on LAMP st
 Every time you build a new binary you get a new md5 checksum for your compiled file.
 
 - You upload the file to your webroot.
-- If a device is awaking from deep sleep, the device script make a request with additional header information.
-- This header information have special content like the MAC address and md5 checksum of installed firmware.
-- The script identify the MAC address with associated device name and md5 check for the binary to serve the correct file to the device.
+- If a device is awaking from deep sleep, the device script make a request with additional header information to your LAMP stack.
+- This header information have special content like the MAC address and md5 checksum of installed device firmware.
+- The script identify the MAC address with associated device name, check the md5 of binary to serve the correct file to the requesting device.
 - After receiving new firmware the device will automatically reset.
 - You can serve as many binaries you want to have from this location ideally related to your amount of existing SolarTherm devices.
-- Each SolarTherm device have its own binary. Done. You never have to connect to serial USB connection again as long the binary is valid
+- Each SolarTherm device have its own binary. Done. You never have to connect to serial USB connection again as long the binary is valid and your battery is healthy
 
 
 ### Troubleshooting
