@@ -1,0 +1,30 @@
+--
+-- Datenbank: `solartherm`
+--
+CREATE DATABASE IF NOT EXISTS `solartherm` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `solartherm`;
+
+-- --------------------------------------------------------
+
+--
+-- Tabellenstruktur für Tabelle `sensors`
+--
+
+CREATE TABLE `sensors` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `temperature` varchar(30) DEFAULT NULL,
+  `pressure` varchar(30) DEFAULT NULL,
+  `altitude` varchar(30) DEFAULT NULL,
+  `humidity` varchar(30) DEFAULT NULL,
+  `battery` varchar(30) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Time` time DEFAULT NULL,
+  `TimeStamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Indizes für die Tabelle `sensors`
+--
+ALTER TABLE `sensors`
+  ADD PRIMARY KEY (`id`);

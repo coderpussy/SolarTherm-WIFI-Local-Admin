@@ -127,9 +127,10 @@ To set up the config files on you local network LAMP stack:
 2. Create a API key with PHP password_hash generator `generate-password.php` located in admin folder
    - `S47TnP3pp3R` should a self defined salt what you have to set inside `remote-temperature.php`
    - you should delete the file from the folder after generation
-3. In `remote-temperature.php` file you have to enter your MySQL database credentials (here i use only localhost if you want to use something else feel free to adjust it)
-4. If you want to have a styled webpage with your measured data you have to enter the database credentials in the `get-data.php` file too.
-5. In SolarTherm's `config.h` specify:
+3. Execute `solartherm.sql` located in admin folder on your MySQL Server command line or with phpMyAdmin if installed, to create the needed database.
+4. In `remote-temperature.php` file you have to enter your MySQL database credentials (here i use only localhost if you want to use something else feel free to adjust it)
+5. If you want to have a styled webpage with your measured data you have to enter the database credentials in the `get-data.php` file too.
+6. In SolarTherm's `config.h` specify:
    - the URL where to send the data `LOCAL_STORAGE_HOST`
    - hostname for device identification `LOCAL_STORAGE_HOSTNAME`
    - and API key `LOCAL_STORAGE_API_KEY` you created in step 2.
@@ -243,7 +244,9 @@ You can customize the messages in the `ota-updater.cpp` file.
 ## Acknowledgements
 
 Thanks to Open Green Energy for sharing his [Solar Powered WiFi Weather Station v2.0](https://www.instructables.com/id/Solar-Powered-WiFi-Weather-Station-V20/) project.
-
+Thanks to Marc Stähli- https://github.com/3KUdelta/Solar_WiFi_Weather_Station<br />
+Thanks to György Balássy- https://github.com/balassy/solar-wifi-weather-station<br />
+Thanks to JonasBadalic https://codepen.io/JonasBadalic/pen/PwWXqg
 
 ## About the author
 
