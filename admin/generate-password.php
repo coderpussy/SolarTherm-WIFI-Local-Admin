@@ -11,7 +11,7 @@ if( isset($_POST['ajax']) && isset($_POST['pepper']) ){
     <html>
 
     <body >
-        <h1>SolarTherm password hash generator</h1>
+        <h1>SolarTherm API key password hash generator</h1>
         <h2>For SolarTherm WIFI Local Admin project</h2>
         <p>Don't forget to enter the password salt in <code>remote-temerature.php</code> to <code>$password = 'S47TnP3pp3R';</code> for your database writing.</p>
         <p>And the generated password hash to <code>config.h</code> in your Arduino sketch to <code>LOCAL_STORAGE_API_KEY</code></p>
