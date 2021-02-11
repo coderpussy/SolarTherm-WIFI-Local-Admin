@@ -8,7 +8,7 @@
 
         // If json is valid
         if(json_last_error() === JSON_ERROR_NONE) {
-            $password = 'S47TnP3pp3R';
+            $password = 'S47TnP3pp3R'; // password salt for password_hash
 
             // if api key is valid
             if(password_verify($password,$obj->apikey)) {

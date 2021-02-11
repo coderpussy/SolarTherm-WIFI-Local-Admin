@@ -124,8 +124,9 @@ The explanation is not done well. I have to correct it and explain some more det
 To set up the config files on you local network LAMP stack:
 
 1. Copy the content of admin folder directly to the location on your LAMP stack webroot or subfolder.
-2. Create a API key with PHP password_hash function like for example: `echo $hash = password_hash("S47TnP3pp3R", PASSWORD_DEFAULT);`
+2. Create a API key with PHP password_hash generator `generate-password.php` located in admin folder
    - `S47TnP3pp3R` should a self defined salt what you have to set inside `remote-temperature.php`
+   - you should delete the file from the folder after generation
 3. In `remote-temperature.php` file you have to enter your MySQL database credentials (here i use only localhost if you want to use something else feel free to adjust it)
 4. If you want to have a styled webpage with your measured data you have to enter the database credentials in the `get-data.php` file too.
 5. In SolarTherm's `config.h` specify:
@@ -179,7 +180,7 @@ Will come soon
 ## Over-the-air updates (OTA)
 
 ESP8266 [supports](https://arduino-esp8266.readthedocs.io/en/latest/ota_updates/readme.html) over the air updates out of the box, so you can load the firmware to the ESP using Wi-Fi connection rather than a serial port.<br />
-In this project only the ESP8266httpUpdate from OTA is avaiable because all other solutions are not suitable due to the deep sleep functionality.
+In this project only the ESP8266httpUpdate from OTA is available because all other solutions are not suitable due to the deep sleep functionality what is used in this project.
 
 ### Security disclaimer
 
