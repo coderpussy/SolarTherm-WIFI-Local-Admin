@@ -49,7 +49,7 @@ SolarTherm WiFi Local Admin isn't:
 - [Acknowledgements](#acknowledgements)
 - [About the author](#about-the-author)
 
-(This Table of Contents was manually created by myself. :-P)
+(This Table of Contents was manually created by myself. 【ツ】)
 
 ## ToDo
 
@@ -243,10 +243,14 @@ You can customize the messages in the `ota-updater.cpp` file.
 
 ## Acknowledgements
 
-Thanks to Open Green Energy for sharing his [Solar Powered WiFi Weather Station v2.0](https://www.instructables.com/id/Solar-Powered-WiFi-Weather-Station-V20/) project.
-Thanks to Marc Stähli- https://github.com/3KUdelta/Solar_WiFi_Weather_Station<br />
-Thanks to György Balássy- https://github.com/balassy/solar-wifi-weather-station<br />
-Thanks to JonasBadalic https://codepen.io/JonasBadalic/pen/PwWXqg
+Thanks to Open Green Energy for sharing his [Solar Powered WiFi Weather Station v2.0](https://www.instructables.com/id/Solar-Powered-WiFi-Weather-Station-V20/) project.<br />
+Thanks to Marc Stähli [3KUdelta](https://github.com/3KUdelta/Solar_WiFi_Weather_Station) for his thingiverse STL's and some code inspiration<br />
+Thanks to György Balássy [balassy](https://github.com/balassy/solar-wifi-weather-station) for the base Arduino code<br />
+Thanks to [Jonas Badalic](https://codepen.io/JonasBadalic/pen/PwWXqg) for his base web frontend code<br />
+
+And all other guys where i have stolen code snippets or ideas or inspirations to make some things possible. ;-P
+
+ℓ٥ﻻ ﻉ√٥υ all ❤◦.¸¸.◦✿
 
 ## About the author
 
