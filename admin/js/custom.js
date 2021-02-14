@@ -1,13 +1,14 @@
 
-$( window ).on( "load", thermoGraph('Wohnzimmer') );
+$( window ).on("load", thermoGraph($(".header .menu li:first-child span").attr("id")));
 
-$( "#Wohnzimmer" ).click(function() {
+$(".header .menu li span").click(function() {
     var id = $(this).attr('id');
     thermoGraph(id);
-});
-$( "#Schlafzimmer" ).click(function() {
-    var id = $(this).attr('id');
-    thermoGraph(id);
+
+    if ($(".header .menu-btn").is(":checked") == true) {
+        $(".header .menu-btn").prop("checked", false);
+        $(".header .menu").removeAttr("style");
+    }
 });
 
 function thermoGraph(thermometer) {
