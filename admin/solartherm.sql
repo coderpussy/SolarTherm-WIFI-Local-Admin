@@ -28,3 +28,10 @@ CREATE TABLE `sensors` (
 --
 ALTER TABLE `sensors`
   ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT für Tabelle `sensors`
+--
+ALTER TABLE `sensors`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
+COMMIT;
