@@ -55,6 +55,12 @@ SolarTherm WiFi Local Admin isn't:
 
 A lot. Will come soon.
 
+## Update
+
+#### 2021-03-11
+- Fixed `solartherm.sql` file added `AUTO_INCREMENT` for field `id`
+- Changed span id in `index.html`
+
 ## Getting started
 
 ### Before you really start
