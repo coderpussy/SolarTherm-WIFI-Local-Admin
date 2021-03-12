@@ -29,7 +29,7 @@ CREATE TABLE `sensors` (
   `Date` date DEFAULT NULL,
   `Time` time DEFAULT NULL,
   `TimeStamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --
 -- Indizes für die Tabelle `sensors`
