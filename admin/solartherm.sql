@@ -19,7 +19,7 @@ USE `solartherm`;
 --
 
 CREATE TABLE `sensors` (
-  `id` int(6) UNSIGNED NOT NULL,
+  `id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(50) DEFAULT NULL,
   `temperature` varchar(30) DEFAULT NULL,
   `pressure` varchar(30) DEFAULT NULL,
@@ -31,15 +31,4 @@ CREATE TABLE `sensors` (
   `TimeStamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
---
--- Indizes für die Tabelle `sensors`
---
-ALTER TABLE `sensors`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT für Tabelle `sensors`
---
-ALTER TABLE `sensors`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
