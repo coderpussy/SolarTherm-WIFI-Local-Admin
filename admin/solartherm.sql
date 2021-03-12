@@ -19,7 +19,7 @@ USE `solartherm`;
 --
 
 CREATE TABLE `sensors` (
-  `id` int(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` varchar(50) DEFAULT NULL,
   `temperature` varchar(30) DEFAULT NULL,
   `pressure` varchar(30) DEFAULT NULL,
